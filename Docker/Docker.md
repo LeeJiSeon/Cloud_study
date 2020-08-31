@@ -27,7 +27,9 @@
   * Kernel은 Host OS를 그대로 사용하되, Host OS와 Container의 OS의 다른 부분만 Container 내에 같이 Packing된다.
   * Container에서 명령어를 수행하면 실제로 Host OS에서 명령어가 실행된다.
   * Host OS의 프로세스 공간을 공유한다.
-  
+
+![VmDocker](https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/vm-vs-docker.png "vm과 docker 비교")
+
 ---
 
 ### _* 이미지 (Image)_ 
@@ -42,6 +44,8 @@
 ```
 * 도커 이미지는 Docker hub에 등록하거나 Docker Registry 저장소를 직접 만들어 관리할 수 있다. 
 
+![DockerImage](https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/docker-image.png "도커 이미지")
+
 ---
 
 ## 2. 도커의 방식
@@ -53,9 +57,10 @@
 ```
 _**-> 레이어(layer)와 유니온 파일 시스템을 이용하여 여러 개의 레이어를 하나의 파일시스템으로 사용할 수 있다.**_
 
+![Layer](https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/image-layer.png "도커 레이어")
+
 * 이미지는 여러 개의 읽기전용(read only) 레이어로 구성된다.
-* 파일이 추가되거나 수정되면 새로운 레이어가 생성된다.  
-_<예시>_
+* 파일이 추가되거나 수정되면 새로운 레이어가 생성된다.
 ```
 
 ```
