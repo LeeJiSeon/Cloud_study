@@ -64,7 +64,20 @@ CMD ["start.sh"]
   * `ENTRYPOINT` : 컨테이너를 구동할 때 실행할 명령어 지정
 * 이 파일은 소스와 함께 버전관리 된다. 
 
-### _4) Docker Hub_
+### _4) repository 연계_
+> - Container Image를 중앙의 Repository에 저장했다가, 다른 환경에서 가져다가 사용할 수 있다.
+
+_-> Application들을 Container로 패키징해서 다른 환경으로 쉽게 옮길 수 있다._
+
+![repository](https://t1.daumcdn.net/cfile/tistory/2406E741526554B52C "도커 레퍼지토리 연계")
+
+```
+ex)
+local pc에서 mysql, apache, tomcat등을 각 컨테이너에 넣어서 개발을 한 후에, 테스트 환경등으로 옮길때,
+Container를 repository에 저장했다가 테스트환경에서 pulling(당겨서) 똑같은 테스트환경을 꾸밀 수 있다.
+```
+* Container에는 모든 application과 설치 파일, 환경 설정 정보 등이 들어 있기 때문에, 손쉽게 패키징 및 설치가 가능하다는 장점을 가지고 있다.
+
 ---
 
 ### _* 참고_
