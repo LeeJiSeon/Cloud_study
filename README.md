@@ -1,4 +1,4 @@
-# Cloud_study
+# Cloud
 
 ## <_to study_>
 * Docker
