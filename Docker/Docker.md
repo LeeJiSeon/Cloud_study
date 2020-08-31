@@ -8,8 +8,7 @@
 
 ### _* 컨테이너 (Container)_
 > - 격리된 공간에서 프로세스가 동작하는 기술
-
----
+* 가상화 기술의 하나지만, 기존의 방식과는 차이가 있다.
 
 ### _* VM vs Docker_
 > - Docker는 Virtual Machine과 유사한 기능을 가지지만, 방식에는 차이가 있다.  
@@ -57,12 +56,17 @@
 ```
 _**-> 레이어(layer)와 유니온 파일 시스템을 이용하여 여러 개의 레이어를 하나의 파일시스템으로 사용할 수 있다.**_
 
-![Layer](https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/image-layer.png "도커 레이어")
-
 * 이미지는 여러 개의 읽기전용(read only) 레이어로 구성된다.
 * 파일이 추가되거나 수정되면 새로운 레이어가 생성된다.
-```
 
+![Layer](https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/image-layer.png "도커 레이어")
+
+```
+ex)
+1. ubuntu 이미지 : A + B + C
+2. ubuntu 이미지를 기반으로 만든 nginx 이미지 : A + B + C + nginx
+3. nginx 이미지룰 기반으로 만든 webapp 이미지 : A + B + C + nginx + source
+=> webapp 소스 수정 시 : source 레이어만 다운 받으면 됨
 ```
 
 ---
