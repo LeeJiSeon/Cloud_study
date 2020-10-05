@@ -98,7 +98,7 @@ spec:
 - 복제할 개수, 개수를 체크할 라벨 선택자, 생성할 Pod의 설정값 (템플릿) 등을 가지고 있다.
 - 직접적으로 사용하기 보다는 Deployment 등 다른 오브젝트에 의해 사용되는 경우가 많다.
 
-### _3) Voume_
+### _3) Volume_
 > - 저장소와 관련된 오브젝트
 > - 컨테이너의 외장 디스크
 
@@ -152,7 +152,7 @@ spec:
 - 네임스페이스별로 리소스의 할당량을 지정할 수 있다.
 - 물리적인 분리가 아니기 때문에 다른 네임스페이스의 Pod 사이에 통신이 가능하다.
 
-![namespace]<https://t1.daumcdn.net/cfile/tistory/999A364D5B02D9C834>
+![namespace](https://t1.daumcdn.net/cfile/tistory/999A364D5B02D9C834)
 
 ### _5) Label_
 
