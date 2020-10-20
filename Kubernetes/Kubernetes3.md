@@ -121,7 +121,28 @@ ex) Deployment -> ReplicaSet 생성
 
 ## 2. Pod 생성 과정
 
+![pod](https://subicura.com/assets/article_images/2019-05-19-kubernetes-basic-1/create-replicaset.png)
 
+- 관리자가 애플리케이션을 배포하기 위해 ReplicaSet을 생성하면 위와 같은 과정을 거쳐 Pod를 생성한다.
+- 각 모듈은 서로 통신하지 않고 오직 API Server와 통신한다.
+
+### _kubectl_
+- ReplicaSet명세를 yml파일로 정의하고 kubectl도구를 이용하여 API Server에 명령을 전달한다.
+- API Server는 새로운 ReplicaSet Object를 etcd에 저장한다.
+
+### _Kube Controller_
+- Kube Controller에 포함된 ReplicaSet Controller가 ReplicaSet을 감시하다가 ReplicaSet에 정의된 Label Selector 조건을 만족하는 Pod이 존재하는지 체크한다.
+- 해당하는 Label의 Pod이 없으면 ReplicaSet의 Pod 템플릿을 보고 새로운 Pod(no assign)을 생성한다.
+-> 생성은 역시 API Server에 전달하고 API Server는 etcd에 저장한다.
+
+### _Scheduler_
+- Scheduler는 할당되지 않은(no assign) Pod이 있는지 체크한다.
+- 할당되지 않은 Pod이 있으면 조건에 맞는 Node를 찾아 해당 Pod을 할당한다.
+
+### _Kubelet_
+- Kubelet은 자신의 Node에 할당되었지만 아직 생성되지 않은 Pod이 있는지 체크한다.
+- 생성되지 않은 Pod이 있으면 명세를 보고 Pod을 생성한다.
+- Pod의 상태를 주기적으로 API Server에 전달한다.
 
 ---
 ## _* 참고_
